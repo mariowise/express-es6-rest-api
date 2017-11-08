@@ -3,9 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import initializeDb from './db';
 import middleware from './middleware';
-import api from './api';
+import controllers from './controllers';
 import config from './config.json';
 
 let app = express();
@@ -23,18 +22,11 @@ app.use(bodyParser.json({
 	limit : config.bodyLimit
 }));
 
-// connect to db
-initializeDb( db => {
-
-	// internal middleware
-	app.use(middleware({ config, db }));
-
-	// api router
-	app.use('/api', api({ config, db }));
-
-	app.server.listen(process.env.PORT || config.port, () => {
-		console.log(`Started on port ${app.server.address().port}`);
-	});
+var db = require('./models/index');
+app.use(middleware({ config, db }));
+app.use('/api', controllers({ config, db }));
+app.server.listen(process.env.PORT || config.port, () => {
+	console.log(`Started on port ${app.server.address().port}`);
 });
 
 export default app;
