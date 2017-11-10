@@ -1,0 +1,20 @@
+{
+  "development": {
+    "dialect": "postgres",
+    "database": "bci-chip-development",
+    "host": "127.0.0.1",
+    "username": "mariowise",
+    "password": null
+  },
+  "test": {
+    "dialect": "postgres",
+    "database": "bci-chip-test",
+    "host": "127.0.0.1",
+    "username": "mariowise",
+    "password": null
+  },
+  "production": {
+  	"dialect": "postgres",
+  	"use_env_variable": "DATABASE_URL"
+  }
+}

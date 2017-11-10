@@ -1,24 +1,5 @@
 {
 	"port": 8080,
-	
 	"bodyLimit": "100kb",
-	
-	"corsHeaders": ["Link"],
-	
-	"database": {
-	  "development": {
-	    "username": "mariowise",
-	    "password": null,
-	    "database": "todos-dev",
-	    "host": "127.0.0.1",
-	    "dialect": "postgres"
-	  },
-	  "test": {
-	    "username": "mariowise",
-	    "password": null,
-	    "database": "todos-test",
-	    "host": "127.0.0.1",
-	    "dialect": "postgres"
-	  }
-	}
+	"corsHeaders": ["Link"]
 }
